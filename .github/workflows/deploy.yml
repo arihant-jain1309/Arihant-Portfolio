@@ -1,35 +1,56 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main   # Trigger deployment on push to main branch
 
 permissions:
-  id-token: write      # Required for OIDC authentication
-  contents: read       # Allows reading repo contents
-  pages: write         # Allows deployment to Pages
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build
-        run: |
-          # Add your build steps here
-          npm install
-          npm run build
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'   # or 20 if your React app supports it
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+      # Step 4: Build React app
+      - name: Build project
+        run: npm run build
+
+      # Step 5: Upload production-ready files
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
+        id: deployment
+        uses: actions/deploy-pages@v4
