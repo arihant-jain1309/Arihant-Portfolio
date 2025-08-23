@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arihant Jain | DevOps Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-gray-900 text-white p-4 fixed w-full shadow-md z-50">
+    <nav class="flex justify-between items-center max-w-6xl mx-auto">
+      <h1 class="text-xl font-bold">Arihant Jain</h1>
+      <ul class="flex gap-6">
+        <li><a href="#about" class="hover:text-yellow-400">About</a></li>
+        <li><a href="#skills" class="hover:text-yellow-400">Skills</a></li>
+        <li><a href="#experience" class="hover:text-yellow-400">Experience</a></li>
+        <li><a href="#projects" class="hover:text-yellow-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <h2 class="text-4xl md:text-6xl font-bold">Hi, I'm Arihant Jain</h2>
+    <p class="mt-4 text-xl">DevOps Engineer | Cloud | CI/CD | Automation</p>
+    <a href="#contact" class="mt-6 px-6 py-3 bg-yellow-400 text-black rounded-xl font-semibold hover:bg-yellow-500">Contact Me</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-4xl mx-auto p-8 text-center">
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p>
+      DevOps Engineer with 2.1 years of hands-on experience in automating cloud infrastructure, building scalable CI/CD
+      pipelines, and deploying containerized applications using Docker and Kubernetes. 
+      Skilled in AWS, Terraform, Jenkins, GitHub Actions, and observability tools like Datadog and Prometheus. 
+      Passionate about automating secure, cost-efficient deployments and solving real-world infrastructure challenges.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-gray-200 py-12">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white shadow-md rounded-xl p-4">CI/CD: Jenkins, GitHub Actions, GitLab</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Cloud: AWS, Azure, GCP</div>
+        <div class="bg-white shadow-md rounded-xl p-4">IaC: Terraform, CloudFormation</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Containers: Docker, Kubernetes (EKS)</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Monitoring: Datadog, Prometheus, Grafana</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Security: SonarQube, Trivy, IAM</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Databases: MySQL, MariaDB</div>
+        <div class="bg-white shadow-md rounded-xl p-4">Servers: Apache, Nginx | Scripting: Bash, YAML</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="max-w-5xl mx-auto p-8">
+    <h2 class="text-3xl font-bold mb-6 text-center">Work Experience</h2>
+    <div class="space-y-6">
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <h3 class="text-xl font-bold">DevOps Engineer</h3>
+        <p class="text-gray-600">TANAMA SOFTWARE PRIVATE LIMITED, Bengaluru | May 2024 – Present</p>
+        <ul class="list-disc text-left ml-6 mt-3">
+          <li>Designed & maintained CI/CD pipelines in Jenkins & GitHub Actions, reducing build time by 30%.</li>
+          <li>Containerized apps with Docker and deployed on EKS with Deployments, Services, Ingress, HPA, StatefulSets.</li>
+          <li>Automated AWS infra provisioning (EC2, S3, VPC, IAM, ALB/NLB, EKS) using Terraform.</li>
+          <li>Implemented DevSecOps best practices (IAM least privilege, SonarQube, Trivy).</li>
+          <li>Deployed Datadog for monitoring, APM, and logs; integrated Prometheus & Grafana.</li>
+        </ul>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <h3 class="text-xl font-bold">DevOps Intern</h3>
+        <p class="text-gray-600">HisanLabs Pvt. Ltd., Pune | Aug 2023 – Apr 2024</p>
+        <ul class="list-disc text-left ml-6 mt-3">
+          <li>Dockerized apps and deployed on Kubernetes with manifests & HPA.</li>
+          <li>Supported CI/CD integration with Jenkins, GitHub Actions, SonarQube, and Maven.</li>
+          <li>Helped provision AWS infra using Terraform.</li>
+          <li>Configured Datadog dashboards & alerts for monitoring.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-5xl mx-auto p-8">
+    <h2 class="text-3xl font-bold mb-6 text-center">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <h3 class="text-xl font-bold">CI/CD Pipeline Automation</h3>
+        <p>Automated deployments using Jenkins, GitHub Actions, and Terraform with Dockerized microservices.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <h3 class="text-xl font-bold">Kubernetes on AWS EKS</h3>
+        <p>Deployed scalable applications with HPA, Ingress, and observability using Prometheus & Grafana.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-200 py-12 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+    <p>📞 +91 6232985895</p>
+    <p>📧 <a href="mailto:jainarihant1309@gmail.com" class="text-blue-600">jainarihant1309@gmail.com</a></p>
+    <p>📍 Bangalore, India</p>
+    <p>🔗 <a href="https://github.com/" target="_blank" class="text-blue-600">GitHub</a> | 
+       <a href="https://linkedin.com/" target="_blank" class="text-blue-600">LinkedIn</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-4 text-center">
+    <p>© 2025 Arihant Jain. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
