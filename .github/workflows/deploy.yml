@@ -1,29 +1,31 @@
-name: Deploy Portfolio to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main   # run workflow whenever you push to main branch
+    branches: [main]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout code
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
-      # Step 3: Upload static site content
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # Upload everything in repo (index.html etc.)
+          enablement: true
 
-      # Step 4: Deploy to GitHub Pages
+      - name: Build site
+        run: |
+          # If you have build steps (e.g. npm install/build), add here
+          # For static HTML, you can skip this step
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '.' # path to your built site or static files
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v3
