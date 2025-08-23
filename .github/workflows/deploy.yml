@@ -2,36 +2,33 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]   # Set your publishing branch if it's different
-
-permissions:
-  id-token: write      # Required for OIDC authentication
-  contents: read       # Allows reading repo contents
-  pages: write         # Allows deployment to Pages
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Build
+        run: |
+          # Add your build steps here
+          npm install
+          npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: ./build
+
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: true
 
-      # Uncomment and edit these lines if you use a site generator (like Jekyll, Hugo, React, etc.)
-      # - name: Install dependencies
-      #   run: npm ci
-      # - name: Build site
-      #   run: npm run build
-
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
-        with:
-          path: '.'   # Set to your build output directory if you have one (e.g. 'dist', 'build')
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v3
