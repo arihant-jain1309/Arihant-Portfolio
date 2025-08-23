@@ -22,7 +22,7 @@ jobs:
           # For static HTML, you can skip this step
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: '.' # path to your built site or static files
 
